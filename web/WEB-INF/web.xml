@@ -4,9 +4,17 @@
         <servlet-name>Multiplicar</servlet-name>
         <servlet-class>com.cice.servlet.Multiplicar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CalculadoraServlet</servlet-name>
+        <servlet-class>com.cice.servlet.CalculadoraServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Multiplicar</servlet-name>
         <url-pattern>/Multiplicar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CalculadoraServlet</servlet-name>
+        <url-pattern>/CalculadoraServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

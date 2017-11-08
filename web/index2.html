@@ -13,36 +13,10 @@ and open the template in the editor.
     
     </head>
 
-    <script>
-        
-        function validForm(form) {
-            alert("Valid form");
-            if (form.name == "multiplicar") {
-                alert("FORM Multiplicar");
-                valor = form.getElementById("numero").value;
-                if( valor == null || valor.length == 0 ) {
-                    
-                    
-                } else {
-                    alert ("ERROR: IS null");
-                    return false;
-                    
-                }
-                
-               
-
-
-            } else {
-
-                alert("FORM Calculadora");
-            }
-
-            return true;
-        }
-    </script>
+ 
     <body>
         <h1>Multiplicar</h1>
-        <form name="multiplicar" action="tablamultiplicar.jsp" method="GET" onsubmit="return validForm(this);">
+        <form name="multiplicar" action="tablamultiplicar.jsp" method="GET" >
             <label>Introduce un número : </label>
             <input TYPE ="text" name="numero"></input>
             <input type="submit" value="Enviar"> 
@@ -51,7 +25,7 @@ and open the template in the editor.
         </form>
         <hr>
         <h1>Calculadora</h1>
-        <form name ="calculadora" action="calculadora.jsp" method="GET" onsubmit="return validForm(this);">
+        <form name ="calculadora" action="./CalculadoraServlet" method="POST">
             <label>Introduce un número : </label>
             <input TYPE ="text" name="numero1"></input></br>
             <label>Introduce un número : </label>
