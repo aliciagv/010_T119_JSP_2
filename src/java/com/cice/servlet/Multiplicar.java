@@ -22,8 +22,8 @@ public class Multiplicar extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        
-         req.setAttribute("i", Integer.parseInt( req.getParameter("numero")));
-         RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
+         req.setAttribute("numero", Integer.parseInt( req.getParameter("numero")));
+         RequestDispatcher rd = req.getRequestDispatcher("/index1.jsp");
          rd.forward(req, resp);
          
          
