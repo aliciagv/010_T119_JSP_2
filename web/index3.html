@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery/jquery.validate.min.js"></script>
+        <script>
+
+    </head>
+
+    <body>
+        <h1>Multiplicar</h1>
+        <form name="multiplicar" action="tablamultiplicar.jsp" method="GET" >
+            <label>Introduce un número : </label>
+            <input TYPE ="text" name="numero"/>
+            <input type="submit" value="Enviar"/> 
+            <input type="reset" value="Borrar" />
+
+        </form>
+        <hr>
+        <h1>Calculadora</h1>
+        <form id ="calculadora" id="idcalculadora" method="POST">
+            <label>Introduce un número : </label>
+            <input TYPE ="text" name="numero1"></input>
+            </br>
+            <label>Introduce un número : </label>
+            <input TYPE ="text" name="numero2"></input>
+            </br>
+            <label>Elige una operación </label>
+            <select name="operacion">
+                <option value="">- Selecciona un valor -</option>
+                <option value="sumar">Sumar</option>
+                <option value="restar">Restar</option>
+                <option value="multiplicar">Multiplicar</option>
+                <option value="dividir">Dividir</option>
+            </select>
+            </br>
+            <input type="submit" id ="btn" value="Enviar">
+            <input type="reset" value="Borrar" />
+        </form>
+        <br>
+        <!-- 	En este div metemos el contenido de la tabla con AJAX -->
+        <div id="resultado"></div>
+
+    </body>
+</html>

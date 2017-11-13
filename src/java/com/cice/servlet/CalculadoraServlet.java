@@ -5,6 +5,7 @@
  */
 package com.cice.servlet;
 
+import com.cice.business.Calculos;
 import com.cice.dto.Operacion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,14 +26,14 @@ public class CalculadoraServlet extends HttpServlet {
         String num2 =req.getParameter("numero2");
         String operacion =req.getParameter("operacion");
         
-        //compruebo que los núemro son números
-        try {
-        double inum1 = Integer.parseInt(num1);
-        double inum2= Integer.parseInt(num2);
-      //  Operacion operacion= new Operacion(inum1,inum2,operacion);
-        } catch (NumberFormatException ex) {
-            resp.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
-        }
+        //compruebo que los número son números
+        Operacion op= new Operacion(Double.parseDouble(num1),Double.parseDouble(num2),operacion);
+        Calculos c = new Calculos(op);
+        
+        double resultado= c.calcular();
+        
+        System.out.println("Resultado: " + resultado);      
+        
         
         
         

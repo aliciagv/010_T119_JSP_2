@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -9,60 +10,52 @@ and open the template in the editor.
         <title>Calculadora</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/jquery/jquery.validate.min.js"></script>
-        <script>
-            $(function () {
-                $("#btn").on(("click"), function () {
-                    $("#idcalculadora").validate({
-                        rules:
-                                {
-                                    numero1: {required:true, number:true, minlength:2,maxlength:8}
-
-                                },
-                        messages: 
-                                {
-                                   numero1: {required: 'El campo es requerido', number:'Sólo se aceptan números',minlength:'El mínimo permitido son 2 caracteres', maxlength:'El máximo permitido es 8 caracteres'} 
-                                }
-                    });
-                });
-            });
-        </script>
-
+      <link href="css/validar.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="js/validar.js"></script> 
     </head>
 
     <body>
-        <h1>Multiplicar</h1>
-        <form name="multiplicar" action="tablamultiplicar.jsp" method="GET" >
-            <label>Introduce un número : </label>
-            <input TYPE ="text" name="numero"/>
-            <input type="submit" value="Enviar"/> 
-            <input type="reset" value="Borrar" />
 
-        </form>
-        <hr>
-        <h1>Calculadora</h1>
-        <form id ="calculadora" id="idcalculadora" method="POST">
+        <h1>Multiplicar</h1>
+
+        <form name="multiplicar" action="tablamultiplicar.jsp" method="GET" onsubmit="return validForm(this);">
             <label>Introduce un número : </label>
-            <input TYPE ="text" name="numero1"></input>
-            </br>
-            <label>Introduce un número : </label>
-            <input TYPE ="text" name="numero2"></input>
-            </br>
-            <label>Elige una operación </label>
-            <select name="operacion">
-                <option value="">- Selecciona un valor -</option>
-                <option value="sumar">Sumar</option>
-                <option value="restar">Restar</option>
-                <option value="multiplicar">Multiplicar</option>
-                <option value="dividir">Dividir</option>
-            </select>
-            </br>
-            <input type="submit" id ="btn" value="Enviar">
+            <input TYPE ="text" name="numero" id="numero"></input>
+            <input type="submit" value="Enviar"> 
             <input type="reset" value="Borrar" />
         </form>
-        <br>
-        <!-- 	En este div metemos el contenido de la tabla con AJAX -->
-        <div id="resultado"></div>
+
+        <hr>
+
+        <h1>Calculadora</h1>
+
+        <form name ="calculadora" action="CalculadoraServlet" method="POST">
+            <ul>
+                <li>
+                    <label>Introduce un número : </label>
+                    <input  type="number" step="any" name="numero1" required placeholder="Escribe un número"></input>
+                </li>
+                </br>
+                <li>
+                    <label>Introduce un número : </label>   
+                    <input  type="number" step="any" name="numero2" required placeholder="Escribe un número"></input></br>
+                </li>
+                </br>
+                <li>    
+                    <label>Elige una operación: </label>
+                    <select name="operacion" required>
+                        <option value="">- Selecciona un valor -</option>
+                        <option value="sumar">Sumar</option>
+                        <option value="restar">Restar</option>
+                        <option value="multiplicar">Multiplicar</option>
+                        <option value="dividir">Dividir</option>
+                    </select>
+                </li>
+            </ul>
+
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Borrar" />
+        </form>
 
     </body>
 </html>
